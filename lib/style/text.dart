@@ -3,7 +3,7 @@ import 'package:git_mentalhealth/utils/color_constants.dart';
 import 'package:git_mentalhealth/utils/size_config.dart';
 
 /// enum for font weight
-enum FONTWEIGHT { light, bold, medium }
+enum FONTWEIGHT { light, regular, medium, bold }
 
 extension FONTWEIGHTEXT on FONTWEIGHT {
   FontWeight? get value {

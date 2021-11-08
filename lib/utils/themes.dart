@@ -10,7 +10,7 @@ class AppTheme {
     colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentColor),
     backgroundColor: kBackgroundColor,
     scaffoldBackgroundColor: kBackgroundColor,
-    // fontFamily: "JioType",
+    fontFamily: "Zen Kaku Gothic Antique",
     textTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFFFFFFFF)),
       headline2: TextStyle(color: Color(0xFFFFFFFF)),
@@ -22,15 +22,18 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
-      primaryColor: kPrimaryDarkColor,
-      colorScheme:
-          ColorScheme.fromSwatch().copyWith(secondary: kAccentDarkColor),
-      textTheme: const TextTheme(
-        headline1: TextStyle(color: Color(0xFF000000)),
-        headline2: TextStyle(color: Color(0xFFFFFFFF)),
-        headline3: TextStyle(color: Color(0xFFFFFFFF)),
-        headline4: TextStyle(color: Color(0xFFFFFFFF)),
-        headline5: TextStyle(color: Color(0xFFFFFFFF)),
-        headline6: TextStyle(color: Color(0xFFFFFFFF)),
-      ));
+    primaryColor: kPrimaryDarkColor,
+    fontFamily: 'Zen Kaku Gothic Antique',
+    backgroundColor: kBackgroundColor,
+    scaffoldBackgroundColor: kBackgroundColor,
+    colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentDarkColor),
+    textTheme: const TextTheme(
+      headline1: TextStyle(color: Color(0xFF000000)),
+      headline2: TextStyle(color: Color(0xFFFFFFFF)),
+      headline3: TextStyle(color: Color(0xFFFFFFFF)),
+      headline4: TextStyle(color: Color(0xFFFFFFFF)),
+      headline5: TextStyle(color: Color(0xFFFFFFFF)),
+      headline6: TextStyle(color: Color(0xFFFFFFFF)),
+    ),
+  );
 }
