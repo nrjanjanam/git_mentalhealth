@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:git_mentalhealth/style/text.dart';
 import 'package:git_mentalhealth/utils/color_constants.dart';
 
@@ -14,9 +15,11 @@ class UiButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final bool? isRounded;
+  final double? buttonWidth;
 
   const UiButton({
     Key? key,
+    this.buttonWidth,
     this.title,
     this.onPress,
     this.state = BUTTONSTATE.active,
@@ -35,8 +38,7 @@ class UiButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => state == BUTTONSTATE.active ? onPress : null,
       child: Container(
-        //alignment: Alignment.center,
-        width: double.infinity,
+        width: buttonWidth ?? double.infinity,
         height: (size?.btnData?.height)!,
         decoration: _btnBoxDecoration(),
         child: _getChild(),

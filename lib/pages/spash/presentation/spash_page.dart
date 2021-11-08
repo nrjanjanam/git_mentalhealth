@@ -1,19 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:get/get.dart';
-import 'package:git_mentalhealth/pages/homepage/homepage.dart';
-import 'package:git_mentalhealth/pages/spash/presentation/preload_services.dart';
+import 'package:git_mentalhealth/pages/spash/domain/preload_services.dart';
 import 'package:git_mentalhealth/pages/spash/presentation/splash_view.dart';
+import 'package:git_mentalhealth/routes/app_routes.dart';
 import 'package:git_mentalhealth/utils/assets_file.dart';
 import 'package:git_mentalhealth/utils/size_config.dart';
 import 'package:git_mentalhealth/widgets/alert.dart';
 import 'package:git_mentalhealth/widgets/stateful_wrapper.dart';
 
 class SplashPage extends StatelessWidget {
-  SplashPage({Key? key}) : super(key: key);
-  final Future<bool> waitSomeTime =
-      Future.delayed(const Duration(seconds: 5)).then((value) => false);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,39 +22,45 @@ class SplashPage extends StatelessWidget {
     return StatefulWrapper(
       onInit: () async {
         // Check Jailbreak / Rooted
-        bool jailbroken = await FlutterJailbreakDetection.jailbroken;
-        // jailbroken = false;
-        if (jailbroken) {
-          Alert.showSuccessDialogWithImage(
-            imageIcon: icInfo,
-            context: Get.context,
-            message:
-                "This application doesn't allow to run on jailbreak or rooted device. Kindly make necessary changes and try again!",
-            buttonCallback: () {
-              Get.back();
-              if (GetPlatform.isAndroid) {
-                SystemNavigator.pop();
-              } else if (GetPlatform.isIOS) {
-                Get.back();
-              }
-            },
-          );
+        bool? _jailbroken;
+        try {
+          _jailbroken = await FlutterJailbreakDetection.jailbroken;
+        } on PlatformException {
+          _jailbroken = true;
+        } on Exception catch (e) {
+          _jailbroken = false;
+          debugPrint(e.toString());
+        }
+        if (_jailbroken) {
+          try {
+            await Alert.showSuccessDialogWithImage(
+              imageIcon: icInfo,
+              context: context,
+              needPositiveButton: false,
+              message:
+                  "This application doesn't allow to run on jailbroken or rooted devices. Kindly check!",
+              buttonCallback: () {
+                if (GetPlatform.isAndroid) {
+                  Get.back();
+                  SystemNavigator.pop();
+                } else if (GetPlatform.isIOS) {
+                  Get.back();
+                  Get.back();
+                }
+              },
+            );
+          } catch (e, trace) {
+            debugPrint('$e $trace');
+          }
         } else {
+          Future.delayed(const Duration(seconds: 5))
+              .then((value) => Get.offAllNamed(AppRouteConstants.homePage));
           // Check for Already Logged In User
           // TODO: check logic for this
         }
       },
-      child: Scaffold(
-        body: FutureBuilder(
-          future: waitSomeTime,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return const MyHomePage();
-            } else {
-              return const SplashView();
-            }
-          },
-        ),
+      child: const Scaffold(
+        body: SplashView(),
         // listeners: [
         //   BlocListener<AuthBloc, AuthState>(
         //     listener: (context, state) {

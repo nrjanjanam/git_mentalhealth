@@ -44,11 +44,9 @@ class SizeConfig {
     devicePixelRatio = ui.window.devicePixelRatio;
     size = ui.window.physicalSize;
 
-    if (devicePixelRatio! < 2 &&
-        ((size?.width)! >= 1000 || (size?.height)! >= 1000)) {
-      devicetype = DEVICETYPE.tablet;
-    } else if (devicePixelRatio == 2 &&
-        ((size?.width)! >= 1920 || (size?.height)! >= 1920)) {
+    if ((size?.width)! >= 1920 || (size?.height)! >= 1920) {
+      devicetype = DEVICETYPE.desktop;
+    } else if ((size?.width)! >= 1000 || (size?.height)! >= 1000) {
       devicetype = DEVICETYPE.tablet;
     } else {
       devicetype = DEVICETYPE.mobile;
