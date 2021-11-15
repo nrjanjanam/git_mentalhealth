@@ -54,7 +54,7 @@ class SplashPage extends StatelessWidget {
           }
         } else {
           Future.delayed(const Duration(seconds: 5))
-              .then((value) => Get.offAllNamed(AppRouteConstants.homePage));
+              .then((value) => Get.offAllNamed(AppRouteConstants.launchPage));
         }
       },
       child: const Scaffold(
