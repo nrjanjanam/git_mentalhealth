@@ -6,8 +6,14 @@ class AppTheme {
 
   AppTheme._();
   static final ThemeData lightTheme = ThemeData(
+    buttonTheme: const ButtonThemeData().copyWith(buttonColor: kAccentColor),
     primaryColor: kPrimaryColor,
-    colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentColor),
+    colorScheme: ColorScheme.fromSwatch(
+            accentColor: kAccentColor,
+            backgroundColor: kBackgroundColor,
+            errorColor: kRedColor,
+            brightness: Brightness.light)
+        .copyWith(secondary: kAccentColor),
     backgroundColor: kBackgroundColor,
     scaffoldBackgroundColor: kBackgroundColor,
     fontFamily: "Zen Kaku Gothic Antique",
@@ -23,10 +29,18 @@ class AppTheme {
 
   static final ThemeData darkTheme = ThemeData(
     primaryColor: kPrimaryDarkColor,
+    buttonTheme:
+        const ButtonThemeData().copyWith(buttonColor: kAccentDarkColor),
     fontFamily: 'Zen Kaku Gothic Antique',
     backgroundColor: kBackgroundColor,
     scaffoldBackgroundColor: kBackgroundColor,
-    colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentDarkColor),
+    colorScheme: ColorScheme.fromSwatch(
+      accentColor: kAccentDarkColor,
+      backgroundColor: kBackgroundColor,
+      errorColor: kRedColor,
+      brightness: Brightness.dark,
+      primaryColorDark: kPrimaryDarkColor,
+    ).copyWith(secondary: kAccentDarkColor),
     textTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF000000)),
       headline2: TextStyle(color: Color(0xFFFFFFFF)),
