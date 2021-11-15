@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:git_mentalhealth/style/adaptive_text.dart';
-import 'package:git_mentalhealth/style/centralize_strings.dart';
-import 'package:git_mentalhealth/style/text.dart';
+import 'package:git_mentalhealth/common/style/adaptive_text.dart';
+import 'package:git_mentalhealth/common/style/centralize_strings.dart';
+import 'package:git_mentalhealth/common/style/text.dart';
 import 'package:git_mentalhealth/utils/assets_file.dart';
 import 'package:git_mentalhealth/utils/color_constants.dart';
 import 'package:git_mentalhealth/utils/size_config.dart';
-import 'package:git_mentalhealth/widgets/button.dart';
-import 'package:git_mentalhealth/widgets/spaces.dart';
+import 'package:git_mentalhealth/common/widgets/button.dart';
+import 'package:git_mentalhealth/common/widgets/spaces.dart';
 
 class Alert {
   static Future<dynamic> showSuccessDialogWithImage(

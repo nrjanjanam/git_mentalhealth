@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:git_mentalhealth/style/text.dart';
+import 'package:git_mentalhealth/common/style/text.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:git_mentalhealth/utils/color_constants.dart';
 
@@ -13,7 +13,6 @@ class SplashView extends StatelessWidget {
         color: kPrimaryColor,
       ),
       child: Center(
-        // child: SvgPicture.asset("assets/icons/peoplefirst_splash.svg"),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

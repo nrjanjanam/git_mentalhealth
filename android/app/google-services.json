@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "79782312084",
+    "project_id": "mental-health-app-e35c4",
+    "storage_bucket": "mental-health-app-e35c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79782312084:android:1d11460fbd7868f62f9c81",
+        "android_client_info": {
+          "package_name": "com.example.git_mentalhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79782312084-7ihf3bpcetsqol7oiq383e8jrsaqf4i1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbywOgNRpTPO8CserLemTZA-rT8vyhsY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79782312084-7ihf3bpcetsqol7oiq383e8jrsaqf4i1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
