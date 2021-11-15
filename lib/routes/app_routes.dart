@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:git_mentalhealth/pages/homepage/homepage.dart';
+import 'package:git_mentalhealth/pages/home_page/homepage.dart';
 import 'package:git_mentalhealth/pages/spash/application/splash_binding.dart';
 import 'package:git_mentalhealth/pages/spash/presentation/spash_page.dart';
 

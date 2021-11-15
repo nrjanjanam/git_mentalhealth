@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:git_mentalhealth/style/centralize_strings.dart';
+import 'package:git_mentalhealth/common/style/centralize_strings.dart';
 import 'package:sizer/sizer.dart';
 
 class AdaptiveTextSize {
