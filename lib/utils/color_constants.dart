@@ -5,7 +5,7 @@ const Color kPrimaryColor = Color(0xffcf9800);
 const Color kPrimaryDarkColor = Color(0xff9c7200);
 const Color kAccentColor = Color(0xff4aa1c7);
 const Color kAccentDarkColor = Color(0xff275a70);
-const Color kBackgroundColor = Color(0xfffff5db);
+const Color kBackgroundColor = Color(0xfffffff2);
 
 const kGrey05 = Color(0xFFF2F2F2);
 const kGrey20 = Color(0xFFCFCFCF);

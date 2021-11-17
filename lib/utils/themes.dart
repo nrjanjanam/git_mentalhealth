@@ -13,7 +13,7 @@ class AppTheme {
             backgroundColor: kBackgroundColor,
             errorColor: kRedColor,
             brightness: Brightness.light)
-        .copyWith(secondary: kAccentColor),
+        .copyWith(secondary: kAccentColor, primary: kPrimaryColor),
     backgroundColor: kBackgroundColor,
     scaffoldBackgroundColor: kBackgroundColor,
     fontFamily: "Zen Kaku Gothic Antique",
@@ -40,7 +40,7 @@ class AppTheme {
       errorColor: kRedColor,
       brightness: Brightness.dark,
       primaryColorDark: kPrimaryDarkColor,
-    ).copyWith(secondary: kAccentDarkColor),
+    ).copyWith(secondary: kAccentDarkColor, primary: kPrimaryColor),
     textTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF000000)),
       headline2: TextStyle(color: Color(0xFFFFFFFF)),
