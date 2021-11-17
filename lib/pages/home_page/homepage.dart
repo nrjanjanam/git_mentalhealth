@@ -7,7 +7,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:git_mentalhealth/common/notification/notification.dart';
+import 'package:git_mentalhealth/common/widgets/nav_bar.dart';
 import 'package:git_mentalhealth/pages/auth/application/auth_controller.dart';
+import 'package:git_mentalhealth/pages/chat_page/chat_page.dart';
 import 'package:git_mentalhealth/utils/color_constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,6 +21,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   final FirebaseMessaging fbm = FirebaseMessaging.instance;
+  final PageController _pageController =
+      PageController(initialPage: 1, keepPage: true);
+  int _selectedPageIndex = 1;
+
+  void _onNavBarChanged(newSelectedIndex) {
+    setState(() {
+      _selectedPageIndex = newSelectedIndex;
+    });
+
+    _pageController.jumpToPage(newSelectedIndex);
+  }
 
   Future<void> permissionCheck() async {
     fbm.requestPermission().then((notificationSettings) {
@@ -185,17 +198,16 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
   }
 
-  void _launchCaller() {}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('GIT Mental Health App'),
         centerTitle: true,
-        backgroundColor: kPrimaryColor,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         actions: [
           DropdownButton<String>(
+            dropdownColor: Theme.of(context).colorScheme.background,
             elevation: 1,
             items: [
               DropdownMenuItem(
@@ -204,15 +216,14 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                   children: [
                     Icon(
                       Icons.exit_to_app,
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).primaryColor,
                     ),
                     const SizedBox(
                       width: 10.0,
                     ),
                     Text(
                       'Logout',
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary),
+                      style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                     const SizedBox(
                       width: 10.0,
@@ -252,26 +263,71 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
             },
             icon: Icon(
               Icons.more_vert,
-              color: Theme.of(context).colorScheme.secondary,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              'HomePage placeholder',
+      body: PageView(
+        controller: _pageController,
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'HomePage placeholder',
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          const ChatPage(),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'SOS placeholder',
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _launchCaller,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      bottomNavigationBar: SizedBox(
+          height: 95,
+          child: BottomNavBar.iconData(
+            indicatorSides: 5,
+            activeIndex: 1,
+            onTap: _onNavBarChanged,
+            animationCurve: Curves.easeOut,
+            animationType: AnimationType.roll,
+            baseAnimationSpeed: 200,
+            navBarDecoration: const BoxDecoration(
+                color: kBackgroundColor,
+                shape: BoxShape.rectangle,
+                borderRadius:
+                    BorderRadius.vertical(top: Radius.circular(15.0))),
+            iconData: const <IconData>[
+              Icons.home,
+              Icons.people,
+              Icons.help_outline_sharp,
+            ],
+            indicatorColors: <Color>[
+              Theme.of(context).colorScheme.secondary,
+              darken(Theme.of(context).colorScheme.secondary, 0.2),
+              darken(Theme.of(context).colorScheme.secondary, 0.3),
+            ],
+          )),
     );
+  }
+
+  Color darken(Color color, [double amount = .1]) {
+    assert(amount >= 0 && amount <= 1);
+
+    final hsl = HSLColor.fromColor(color);
+    final hslDark = hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
+
+    return hslDark.toColor();
   }
 }

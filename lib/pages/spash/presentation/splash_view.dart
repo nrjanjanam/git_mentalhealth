@@ -9,8 +9,8 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: kPrimaryColor,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
       ),
       child: Center(
         child: Column(
@@ -20,25 +20,17 @@ class SplashView extends StatelessWidget {
               text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(
-                    text: 'RIL',
+                    text: 'YOUGRAM',
                     style: appTextStyle(
                         type: "D1",
                         weight: FONTWEIGHT.light,
                         color: Colors.white),
                   ),
-                  TextSpan(
-                    text: 'HR',
-                    style: appTextStyle(
-                      type: "D1",
-                      color: Colors.white,
-                      weight: FONTWEIGHT.bold,
-                    ),
-                  ),
                 ],
               ),
             ),
             Text(
-              "PERFORMANCE | AGILITY | ENGAGEMENT".toUpperCase(),
+              "INCLUSIVITY | SELF REFLECTION | COMMUNITY".toUpperCase(),
               style: appTextStyle(
                 weight: FONTWEIGHT.light,
                 type: "B1",
