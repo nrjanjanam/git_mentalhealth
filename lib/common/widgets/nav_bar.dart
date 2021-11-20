@@ -184,7 +184,8 @@ class BottomNavBar extends StatelessWidget {
   /// realistic rolling illusion.
   final double? sidesPerListItem;
 
-  BottomNavBar.builder({
+  const BottomNavBar.builder({
+    Key? key,
     required this.builder,
     required this.numChildren,
     this.activeBadgeColors,
@@ -210,8 +211,10 @@ class BottomNavBar extends StatelessWidget {
             activeBadgeColors.length == 1 ||
             activeBadgeColors.length == numChildren),
         assert(badges == null || badges.length == numChildren),
-        assert(indicatorSides > 2);
-  BottomNavBar.iconData({
+        assert(indicatorSides > 2),
+        super(key: key);
+  const BottomNavBar.iconData({
+    Key? key,
     required List<IconData> this.iconData,
     this.activeBadgeColors,
     this.activeIconColors,
@@ -244,8 +247,10 @@ class BottomNavBar extends StatelessWidget {
         assert(badges == null || badges.length == iconData.length),
         assert(iconColors.length == 1 || iconColors.length == iconData.length),
         assert(indicatorColors.length == 1 ||
-            indicatorColors.length == iconData.length);
+            indicatorColors.length == iconData.length),
+        super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -777,7 +782,7 @@ class _OptionalBadge extends StatelessWidget {
   final Widget? badge;
   final Widget child;
   final Color? color;
-  _OptionalBadge({this.badge, required this.child, this.color, Key? key})
+  const _OptionalBadge({this.badge, required this.child, this.color, Key? key})
       : super(key: key);
 
   @override

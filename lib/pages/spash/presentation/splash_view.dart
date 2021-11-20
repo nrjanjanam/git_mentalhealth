@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:git_mentalhealth/common/style/text.dart';
-// import 'package:flutter_svg/svg.dart';
-import 'package:git_mentalhealth/utils/color_constants.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);

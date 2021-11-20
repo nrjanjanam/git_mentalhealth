@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:git_mentalhealth/common/notification/notification.dart';
 import 'package:git_mentalhealth/common/widgets/nav_bar.dart';
 import 'package:git_mentalhealth/pages/auth/application/auth_controller.dart';
-import 'package:git_mentalhealth/pages/chat_page/chat_page.dart';
+import 'package:git_mentalhealth/pages/community_page/community_page.dart';
 import 'package:git_mentalhealth/utils/color_constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -281,7 +281,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               ],
             ),
           ),
-          const ChatPage(),
+          const CommunityPage(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -310,7 +310,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                     BorderRadius.vertical(top: Radius.circular(15.0))),
             iconData: const <IconData>[
               Icons.home,
-              Icons.people,
+              Icons.chat_rounded,
               Icons.help_outline_sharp,
             ],
             indicatorColors: <Color>[

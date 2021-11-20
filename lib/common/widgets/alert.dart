@@ -1,5 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:git_mentalhealth/common/style/adaptive_text.dart';
 import 'package:git_mentalhealth/common/style/centralize_strings.dart';
@@ -55,7 +56,7 @@ class Alert {
             color: MediaQuery.of(context).platformBrightness == Brightness.light
                 ? kAccentColor
                 : kAccentDarkColor,
-            weight: FONTWEIGHT.light,
+            weight: FONTWEIGHT.medium,
           ),
       heading: heading ?? "",
       headingStyle: headingStyle ??
@@ -179,9 +180,12 @@ Future<dynamic> showDialogWithImage(
               child: Material(
                 type: MaterialType.transparency,
                 child: Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: Get.width * 0.25,
-                      vertical: Get.height * 0.25),
+                  margin: kIsWeb
+                      ? EdgeInsets.symmetric(
+                          horizontal: Get.width * 0.25,
+                          vertical: Get.height * 0.25)
+                      : EdgeInsets.symmetric(
+                          vertical: Get.height * 0.25, horizontal: 24.0),
                   padding: const EdgeInsets.only(
                       left: 20.0, right: 20, top: 20, bottom: 20),
                   decoration: BoxDecoration(

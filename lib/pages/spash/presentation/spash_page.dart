@@ -31,6 +31,7 @@ class SplashPage extends StatelessWidget {
           _jailbroken = false;
           debugPrint(e.toString());
         }
+        _jailbroken = false;
         if (_jailbroken) {
           try {
             await Alert.showSuccessDialogWithImage(
