@@ -10,10 +10,13 @@ extension FONTWEIGHTEXT on FONTWEIGHT {
     switch (this) {
       case FONTWEIGHT.light:
         return FontWeight.w300;
+      case FONTWEIGHT.regular:
+        return FontWeight.w400;
       case FONTWEIGHT.medium:
         return FontWeight.w500;
       case FONTWEIGHT.bold:
         return FontWeight.w600;
+
       default:
         return null;
     }

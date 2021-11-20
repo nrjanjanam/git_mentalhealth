@@ -5,7 +5,7 @@ const Color kPrimaryColor = Color(0xffcf9800);
 const Color kPrimaryDarkColor = Color(0xff9c7200);
 const Color kAccentColor = Color(0xff4aa1c7);
 const Color kAccentDarkColor = Color(0xff275a70);
-const Color kBackgroundColor = Color(0xfffffff2);
+const Color kBackgroundColor = Colors.white;
 
 const kGrey05 = Color(0xFFF2F2F2);
 const kGrey20 = Color(0xFFCFCFCF);
@@ -30,3 +30,9 @@ const kPositive10 = Color(0xFFDCFCE3);
 const kNegative100 = Color(0xFFC71720);
 const kNegative110 = Color(0xFF96181C);
 const kNegative10 = Color(0xFFFFDBDC);
+
+///Community Tab Colors
+const kTherapist = Color(0XFFC40000);
+const kFriendsAndFam = Color(0XFFF244BE);
+const kListener = Color(0XFFAA00C4);
+const kChatBot = Color(0XFF334D5C);

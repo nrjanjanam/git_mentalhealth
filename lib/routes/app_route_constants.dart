@@ -6,4 +6,7 @@ abstract class AppRouteConstants {
   static const String homePage = '/home-page';
   static const String launchPage = '/launch-page';
   static const String authPage = '/auth-page';
+
+  //community routes
+  static const String chatPage = '/chat-page';
 }

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:git_mentalhealth/pages/chat_page/chat_page.dart';
 import 'package:git_mentalhealth/pages/home_page/homepage.dart';
 import 'package:git_mentalhealth/pages/launch_page/launch_page.dart';
 import 'package:git_mentalhealth/pages/spash/application/splash_binding.dart';
@@ -24,5 +25,10 @@ class AppPages {
       page: () => const LaunchPage(),
       transition: Transition.fadeIn,
     ),
+    GetPage(
+      name: AppRouteConstants.chatPage,
+      page: () => const ChatPage(),
+      transition: Transition.fadeIn,
+    )
   ];
 }

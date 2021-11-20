@@ -1,2 +1,2 @@
-const imgSuccessIcon = 'icons/success_icon.png';
-const icInfo = 'icons/info_icon.svg';
+const imgSuccessIcon = 'assets/icons/success_icon.png';
+const icInfo = 'assets/icons/info_icon.svg';
