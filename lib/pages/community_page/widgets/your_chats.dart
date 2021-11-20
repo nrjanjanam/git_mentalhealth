@@ -21,7 +21,7 @@ class YourChats extends StatelessWidget {
         Text("Your Chats",
             style: appTextStyle(
               weight: FONTWEIGHT.medium,
-              type: "h3",
+              type: "h4",
               color: kCoral100,
             )),
         kVerticalSpace(height: 10.0),

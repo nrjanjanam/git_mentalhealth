@@ -26,7 +26,7 @@ class _RecentChatsState extends State<RecentChats> {
           Text("Recent Chats",
               style: appTextStyle(
                 weight: FONTWEIGHT.medium,
-                type: "h3",
+                type: "h4",
                 color: kCoral100,
               )),
           kVerticalSpace(height: 2.0),
